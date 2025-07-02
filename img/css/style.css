@@ -1,0 +1,231 @@
+/* Reset e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;  /* Garante que a altura mínima seja 100vh */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    position: relative;
+    background-color: #f8f9fa;
+    overflow-x: hidden; /* Impede rolagem horizontal */
+}
+
+/* Imagem de fundo */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/image.jpg') no-repeat center center fixed;
+
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    z-index: -1; /* Coloca a imagem atrás de todo o conteúdo */
+}
+
+/* Cabeçalho */
+.header {
+    width: 100%;
+    background-color: rgba(0, 123, 255, 0.8);  /* Fundo azul com transparência */
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header .logo h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Formulário */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.5);  /* Fundo branco com transparência */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;  /* Ajusta o tamanho do formulário */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 100px; /* Espaço suficiente para o cabeçalho */
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: #222; /* Cor mais escura para o título */
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    color: #333; /* Cor mais escura para as labels */
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    color: #333; /* Cor do texto dentro dos inputs mais escura */
+    transition: border-color 0.3s ease;
+}
+
+/* Remover as setinhas nos campos de número em todos os navegadores */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Para Firefox */
+    appearance: none; /* Para outros navegadores */
+}
+
+/* Estilo do campo quando ele está em foco */
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #007bff;
+}
+
+/* Placeholders (textos dentro dos campos) */
+.input-group input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Botão de Envio */
+.button-container input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Mensagens de erro e sucesso */
+.error {
+    color: red;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.success {
+    color: green;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 10px;
+}
+/* Responsividade para telas menores que 768px (celulares e tablets) */
+@media (max-width: 768px) {
+    /* Ajusta cabeçalho */
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+    }
+
+    .header .logo h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .navbar ul li {
+        margin: 5px 0;
+    }
+
+    .navbar ul li a {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+
+    /* Centraliza e adapta o formulário */
+    .form-container {
+        width: 90%;
+        margin-top: 120px; /* dá espaço abaixo do menu fixo */
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .button-container input[type="submit"] {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
